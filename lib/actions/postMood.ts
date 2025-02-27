@@ -24,6 +24,7 @@ export const postMood = async (prevState: any, formData: FormData) => {
     const note = formData.get("note") as string;
     const mood = formData.get("mood") as string;
     await connectToDatabase();
+    
     try {
         const validatedData = MoodSchema.parse({ note, mood });  // Fixed typo: validatedData
         await Mood.create({

@@ -1,6 +1,8 @@
 import { useActionState } from "react";
 import { postMood } from "@/lib/actions/postMood";
+import { updateMood } from "@/lib/actions/updateMood";
 import SubmitButton from "./SubmitButton"
+
 
 interface MoodFormProps {
   mood?: { _id: string; note: string; mood: string };
@@ -9,7 +11,7 @@ interface MoodFormProps {
 
 const MoodForm = ({ mood, isEdit = false }: MoodFormProps) => {
   const [state, formAction] = useActionState(
-    isEdit ? postMood : postMood,
+    isEdit ? updateMood : postMood,
     null
   );
   return (
